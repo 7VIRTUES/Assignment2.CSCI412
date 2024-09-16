@@ -25,6 +25,10 @@ This is an Android app developed for **Assignment 2** of the CSCI 412 course. Th
 - **Android Studio**: IDE for development.
 - **Android Intents**: Demonstrated explicit and implicit intents for navigating between activities.
 
+## Device/Emulator and Android OS Version
+- **Emulator**: Medium Phone API 35
+- **Android OS Version**: API Level 35 (Android 12L)
+
 ## App Structure
 1. **MainActivity**:
     - Displays developer information and two buttons for intent navigation.
