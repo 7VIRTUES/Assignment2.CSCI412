@@ -6,9 +6,16 @@
         android:name="android.hardware.camera"
         android:required="false" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- Custom Permission Definition -->
+    <permission
+        android:name="com.example.assignment2csci412.MSE412"
+        android:protectionLevel="dangerous" />
+
+    <!-- Declare the usage of the custom permission -->
+    <uses-permission android:name="com.example.assignment2csci412.MSE412" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +26,8 @@
         android:theme="@style/Theme.Assignment2CSCI412">
 
         <!-- Main Activity Declaration -->
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +35,11 @@
             </intent-filter>
         </activity>
 
-        <!-- Second Activity Declaration -->
-        <activity android:name=".SecondActivity"
-            android:exported="true">
+        <!-- Second Activity Declaration Protected by Custom Permission -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true"
+            android:permission="com.example.assignment2csci412.MSE412">
             <intent-filter>
                 <action android:name="com.example.assignment2csci412.ACTION_VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -37,7 +47,8 @@
         </activity>
 
         <!-- Third Activity Declaration for Image Capture -->
-        <activity android:name=".ImageCaptureActivity"
+        <activity
+            android:name=".ImageCaptureActivity"
             android:exported="true">
         </activity>
 
