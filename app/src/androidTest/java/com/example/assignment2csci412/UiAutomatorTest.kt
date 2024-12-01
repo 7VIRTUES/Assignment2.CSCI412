@@ -61,13 +61,21 @@ class UiAutomatorTest {
         )
         assertTrue("Second activity title not found", secondActivityTitle != null)
 
-        // Wait for one of the challenges to appear (e.g., "Managing limited device resources")
-        val challengeText = device.wait(
-            Until.findObject(By.textContains("Managing limited device resources")),
-            5000 // Timeout in milliseconds
+        // Validate each challenge from the updated list
+        val challengesToCheck = listOf(
+            "1. Managing limited device resources",
+            "2. Ensuring compatibility across multiple devices",
+            "3. Handling user data securely",
+            "4. Optimizing battery and performance",
+            "5. Designing intuitive and responsive UIs"
         )
-        assertTrue("Expected challenge not found", challengeText != null)
+
+        challengesToCheck.forEach { challenge ->
+            val challengeText = device.wait(
+                Until.findObject(By.textContains(challenge)),
+                5000 // Timeout in milliseconds
+            )
+            assertTrue("Expected challenge not found: $challenge", challengeText != null)
+        }
     }
-
-
 }
